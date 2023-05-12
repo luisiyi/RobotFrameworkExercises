@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.7 on win32)" generated="20230512 10:41:25.389" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="C:\Users\lgutierrez\Documents\Testing_Course\Robot_Framework\lgutierrez_Exercises_AT\tests">
+<suite id="s1-s1" name="Exercises" source="C:\Users\lgutierrez\Documents\Testing_Course\Robot_Framework\lgutierrez_Exercises_AT\tests\Exercises.robot">
+<test id="s1-s1-t1" name="Dynamic Content" line="112">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Set Variable" library="BuiltIn">
+<var>${full}</var>
+<arg>${EXECDIR}${/}Download${/}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230512 10:41:26.737" level="INFO">${full} = C:\Users\lgutierrez\Documents\Testing_Course\Robot_Framework\lgutierrez_Exercises_AT\Download\</msg>
+<status status="PASS" starttime="20230512 10:41:26.737" endtime="20230512 10:41:26.737"/>
+</kw>
+<kw name="Normalize Path" library="OperatingSystem">
+<var>${path}</var>
+<arg>${full}</arg>
+<doc>Normalizes the given path.</doc>
+<msg timestamp="20230512 10:41:26.738" level="INFO">${path} = C:\Users\lgutierrez\Documents\Testing_Course\Robot_Framework\lgutierrez_Exercises_AT\Download</msg>
+<status status="PASS" starttime="20230512 10:41:26.737" endtime="20230512 10:41:26.738"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${path}</arg>
+<arg>download.prompt_for_download=${FALSE}</arg>
+<arg>download.directory_upgrade=${TRUE}</arg>
+<arg>safebrowsing.enabled=${TRUE}</arg>
+<arg>profile.default_content_settings.popups=1</arg>
+<arg>profile.default_content_setting_values.automatic_downloads=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230512 10:41:26.739" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\lgutierrez\\Documents\\Testing_Course\\Robot_Framework\\lgutierrez_Exercises_AT\\Download', 'download.prompt_for_download': False, 'download.directory_upgrad...</msg>
+<status status="PASS" starttime="20230512 10:41:26.738" endtime="20230512 10:41:26.739"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.7s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230512 10:41:26.739" endtime="20230512 10:41:26.739"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blanck</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option("prefs",${prefs})</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230512 10:41:26.740" level="INFO">Opening browser 'gc' to base url 'about:blanck'.</msg>
+<msg timestamp="20230512 10:41:26.763" level="INFO">Executing: C:\Users\lgutierrez\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
+<status status="PASS" starttime="20230512 10:41:26.739" endtime="20230512 10:41:29.304"/>
+</kw>
+<kw name="Set Window Position" library="SeleniumLibrary">
+<arg>x=-5</arg>
+<arg>y=0</arg>
+<doc>Sets window position using ``x`` and ``y`` coordinates.</doc>
+<status status="PASS" starttime="20230512 10:41:29.305" endtime="20230512 10:41:30.125"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>width=1920</arg>
+<arg>height=1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230512 10:41:30.126" endtime="20230512 10:41:30.955"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:26.736" endtime="20230512 10:41:30.955"/>
+</kw>
+<kw name="Go To Dynamic Content Link" library="LandingPage">
+<kw name="Navigate To" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230512 10:41:30.956" level="INFO">Opening url 'https://the-internet.herokuapp.com/'</msg>
+<status status="PASS" starttime="20230512 10:41:30.956" endtime="20230512 10:41:32.801"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:30.956" endtime="20230512 10:41:32.801"/>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${HOME_HEADER_LABEL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230512 10:41:32.801" endtime="20230512 10:41:33.521"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:32.801" endtime="20230512 10:41:33.521"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${LINK_DYNAMIC_CONTENT}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230512 10:41:33.522" level="INFO">Clicking link '//*[@id="content"]/ul/li[12]/a'.</msg>
+<status status="PASS" starttime="20230512 10:41:33.521" endtime="20230512 10:41:35.991"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:30.955" endtime="20230512 10:41:35.992"/>
+</kw>
+<kw name="Entering The First Five Images Into A List" library="DynamicContent">
+<kw name="Create List" library="BuiltIn">
+<var>${First_5_Images}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230512 10:41:35.995" level="INFO">${First_5_Images} = []</msg>
+<status status="PASS" starttime="20230512 10:41:35.995" endtime="20230512 10:41:35.995"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:35.996" level="INFO">Length is 0</msg>
+<msg timestamp="20230512 10:41:35.997" level="INFO">${length} = 0</msg>
+<status status="PASS" starttime="20230512 10:41:35.996" endtime="20230512 10:41:35.997"/>
+</kw>
+<while condition="'TRUE'">
+<iter>
+<kw name="Refresh Page Until All The Images Appears At Least One Time" library="DynamicContent">
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20230512 10:41:35.998" endtime="20230512 10:41:36.885"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:35.998" endtime="20230512 10:41:36.886"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>4</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${DYNAMIC_CONTENT_IMG${i}}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230512 10:41:38.348" level="INFO">${src} = https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:36.888" endtime="20230512 10:41:38.348"/>
+</kw>
+<kw name="Append In List" library="DynamicContent">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<kw name="Append To List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230512 10:41:38.349" endtime="20230512 10:41:38.349"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:38.348" endtime="20230512 10:41:38.350"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>error</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230512 10:41:38.350" level="ERROR">List has one item:
+https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:38.350" endtime="20230512 10:41:38.352"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:38.352" level="INFO">Length is 1</msg>
+<msg timestamp="20230512 10:41:38.352" level="INFO">${length} = 1</msg>
+<status status="PASS" starttime="20230512 10:41:38.352" endtime="20230512 10:41:38.352"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230512 10:41:38.353" endtime="20230512 10:41:38.353"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:36.887" endtime="20230512 10:41:38.353"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${DYNAMIC_CONTENT_IMG${i}}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230512 10:41:39.801" level="INFO">${src} = https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:38.354" endtime="20230512 10:41:39.801"/>
+</kw>
+<kw name="Append In List" library="DynamicContent">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<kw name="Append To List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230512 10:41:39.802" endtime="20230512 10:41:39.802"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:39.801" endtime="20230512 10:41:39.802"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>error</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230512 10:41:39.803" level="ERROR">List length is 2 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:39.802" endtime="20230512 10:41:39.804"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:39.804" level="INFO">Length is 2</msg>
+<msg timestamp="20230512 10:41:39.804" level="INFO">${length} = 2</msg>
+<status status="PASS" starttime="20230512 10:41:39.804" endtime="20230512 10:41:39.804"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230512 10:41:39.804" endtime="20230512 10:41:39.805"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:38.354" endtime="20230512 10:41:39.805"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${DYNAMIC_CONTENT_IMG${i}}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230512 10:41:41.256" level="INFO">${src} = https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:39.805" endtime="20230512 10:41:41.256"/>
+</kw>
+<kw name="Append In List" library="DynamicContent">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<kw name="Append To List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230512 10:41:41.259" endtime="20230512 10:41:41.260"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:41.258" endtime="20230512 10:41:41.261"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>error</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230512 10:41:41.261" level="ERROR">List length is 3 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:41.261" endtime="20230512 10:41:41.262"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:41.262" level="INFO">Length is 3</msg>
+<msg timestamp="20230512 10:41:41.262" level="INFO">${length} = 3</msg>
+<status status="PASS" starttime="20230512 10:41:41.262" endtime="20230512 10:41:41.262"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230512 10:41:41.262" endtime="20230512 10:41:41.262"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:39.805" endtime="20230512 10:41:41.262"/>
+</iter>
+<status status="PASS" starttime="20230512 10:41:36.886" endtime="20230512 10:41:41.262"/>
+</for>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:41.263" level="INFO">Length is 3</msg>
+<msg timestamp="20230512 10:41:41.263" level="INFO">${length} = 3</msg>
+<status status="PASS" starttime="20230512 10:41:41.263" endtime="20230512 10:41:41.263"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230512 10:41:41.263" endtime="20230512 10:41:41.263"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:35.997" endtime="20230512 10:41:41.263"/>
+</iter>
+<iter>
+<kw name="Refresh Page Until All The Images Appears At Least One Time" library="DynamicContent">
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20230512 10:41:41.264" endtime="20230512 10:41:42.085"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:41.264" endtime="20230512 10:41:42.085"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>4</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${DYNAMIC_CONTENT_IMG${i}}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230512 10:41:43.524" level="INFO">${src} = https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:42.085" endtime="20230512 10:41:43.524"/>
+</kw>
+<kw name="Append In List" library="DynamicContent">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<kw name="Append To List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230512 10:41:43.524" endtime="20230512 10:41:43.525"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:43.524" endtime="20230512 10:41:43.525"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>error</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230512 10:41:43.525" level="ERROR">List length is 4 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+3: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:43.525" endtime="20230512 10:41:43.526"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:43.527" level="INFO">Length is 4</msg>
+<msg timestamp="20230512 10:41:43.527" level="INFO">${length} = 4</msg>
+<status status="PASS" starttime="20230512 10:41:43.526" endtime="20230512 10:41:43.527"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20230512 10:41:43.527" endtime="20230512 10:41:43.527"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:42.085" endtime="20230512 10:41:43.527"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${src}</var>
+<arg>${DYNAMIC_CONTENT_IMG${i}}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230512 10:41:44.968" level="INFO">${src} = https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:43.527" endtime="20230512 10:41:44.968"/>
+</kw>
+<kw name="Append In List" library="DynamicContent">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<kw name="Append To List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>${src}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230512 10:41:44.968" endtime="20230512 10:41:44.969"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:44.968" endtime="20230512 10:41:44.969"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${First_5_Images}</arg>
+<arg>error</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230512 10:41:44.969" level="ERROR">List length is 5 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+3: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+4: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<status status="PASS" starttime="20230512 10:41:44.969" endtime="20230512 10:41:44.970"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:44.970" level="INFO">Length is 5</msg>
+<msg timestamp="20230512 10:41:44.970" level="INFO">${length} = 5</msg>
+<status status="PASS" starttime="20230512 10:41:44.970" endtime="20230512 10:41:44.970"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20230512 10:41:44.971" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20230512 10:41:44.970" endtime="20230512 10:41:44.971"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:43.527" endtime="20230512 10:41:44.971"/>
+</iter>
+<status status="PASS" starttime="20230512 10:41:42.085" endtime="20230512 10:41:44.971"/>
+</for>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${First_5_Images}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230512 10:41:44.971" level="INFO">Length is 5</msg>
+<msg timestamp="20230512 10:41:44.971" level="INFO">${length} = 5</msg>
+<status status="PASS" starttime="20230512 10:41:44.971" endtime="20230512 10:41:44.971"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${length}==5</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20230512 10:41:44.972" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20230512 10:41:44.971" endtime="20230512 10:41:44.972"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:41.263" endtime="20230512 10:41:44.972"/>
+</iter>
+<status status="PASS" starttime="20230512 10:41:35.997" endtime="20230512 10:41:44.972"/>
+</while>
+<kw name="Log" library="BuiltIn">
+<arg>While Outside</arg>
+<arg>error</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230512 10:41:44.972" level="ERROR">While Outside</msg>
+<status status="PASS" starttime="20230512 10:41:44.972" endtime="20230512 10:41:44.973"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:35.993" endtime="20230512 10:41:44.973"/>
+</kw>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230512 10:41:44.974" endtime="20230512 10:41:47.761"/>
+</kw>
+<status status="PASS" starttime="20230512 10:41:44.973" endtime="20230512 10:41:47.762"/>
+</kw>
+<doc>Test to validate all the images appear at least once</doc>
+<tag>DynamicContent</tag>
+<status status="PASS" starttime="20230512 10:41:26.732" endtime="20230512 10:41:47.763"/>
+</test>
+<doc>This project is about Exercisie Automated Testing in http://moodle/mod/assign/view.php?id=1825</doc>
+<status status="PASS" starttime="20230512 10:41:25.413" endtime="20230512 10:41:47.772"/>
+</suite>
+<status status="PASS" starttime="20230512 10:41:25.391" endtime="20230512 10:41:47.782"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">DynamicContent</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Exercises">Tests.Exercises</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230512 10:41:38.350" level="ERROR">List has one item:
+https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<msg timestamp="20230512 10:41:39.803" level="ERROR">List length is 2 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<msg timestamp="20230512 10:41:41.261" level="ERROR">List length is 3 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg</msg>
+<msg timestamp="20230512 10:41:43.525" level="ERROR">List length is 4 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+3: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<msg timestamp="20230512 10:41:44.969" level="ERROR">List length is 5 and it contains following items:
+0: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+1: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+2: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-7.jpg
+3: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg
+4: https://the-internet.herokuapp.com/img/avatars/Original-Facebook-Geek-Profile-Avatar-2.jpg</msg>
+<msg timestamp="20230512 10:41:44.972" level="ERROR">While Outside</msg>
+</errors>
+</robot>
