@@ -35,16 +35,6 @@ ${FORM_AUTH_INVALID_USERNAME} =                 tomsmith1
 ${FORM_AUTH_INVALID_PASSWORD} =                 SuperS1ecretPassword!
 
 
-# These lines are already no necessary
-${NAME_FILE_TEXT9} =                    Text9.txt
-${NAME_FILE_MINDMAP} =                  mind map.gif
-${NAME_FILE_TEXT6} =                    Text6.txt
-${NAME_FILE_UPLOADTEXTFILE} =           UploadTextFile.txt
-${NAME_FILE_SERENE} =                   serene.jpg
-&{ALL_FILES_DOWNLOAD_EXPECTED} =        File_1=${EXECDIR}${/}Download${/}${NAME_FILE_TEXT9}     File_2=${EXECDIR}${/}Download${/}${NAME_FILE_MINDMAP}      File_3=${EXECDIR}${/}Download${/}${NAME_FILE_TEXT6}     File_4=${EXECDIR}${/}Download${/}${NAME_FILE_UPLOADTEXTFILE}        File_5=${EXECDIR}${/}Download${/}${NAME_FILE_SERENE}
-
-
-
 *** Test Cases ***
 Add Remove Elements
     [Documentation]    Test to add and remove elements
