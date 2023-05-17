@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    Browser
+#Library    Browser
 
 *** Variables ***
 ${HOME_HEADER_LABEL} =              Welcome to the-internet

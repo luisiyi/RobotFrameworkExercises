@@ -1,4 +1,0 @@
-*** Variables ***
-# Input Data
-
-# AddRemoveElements

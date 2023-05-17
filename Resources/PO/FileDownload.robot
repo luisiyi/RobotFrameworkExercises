@@ -15,7 +15,7 @@ Download Each File
         Click Link      ${List}[${i}]
         Wait Until Created          ${EXECDIR}${/}Download${/}${List}[${i}]
     END
-    RETURN      ${List}
+#    RETURN      ${List}
 
 Validate Each File Was Downloaded
     ${Files_List} =  List Directory      ${EXECDIR}${/}Download${/}
