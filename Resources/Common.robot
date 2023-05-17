@@ -14,7 +14,7 @@ Begin Web Test
 
     ${prefs} =  Create Dictionary   download.default_directory=${path}  download.prompt_for_download=${FALSE}   download.directory_upgrade=${TRUE}    safebrowsing.enabled=${TRUE}      profile.default_content_settings.popups=1       profile.default_content_setting_values.automatic_downloads=1
 
-#    set selenium speed           0.7s
+#    set selenium speed           0.5s
     set selenium speed           0.01s
     #set selenium timeout        10s
 

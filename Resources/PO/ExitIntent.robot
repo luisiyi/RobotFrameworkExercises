@@ -12,7 +12,7 @@ Mouse Out Of Viewport
     ${pos_y} =   Get Vertical Position           ${EXIT_INTENT}
     Move To         ${pos_x}        ${pos_y}
     Sleep    2s
-    Move To         ${pos_x}               800
+    Move To         ${pos_x}               100
     Sleep    1s
 
 
